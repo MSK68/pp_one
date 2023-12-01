@@ -8,7 +8,7 @@ text_summarizer_pipeline = pipeline('summarization', model="d0rj/rut5-base-summ"
 
 
 
-def greetMe(articleInput, min_length_of_article, max_length_of_article):
+def summ(articleInput, min_length_of_article, max_length_of_article):
 
     articleToBeSummarized = articleInput
 
@@ -18,7 +18,7 @@ def greetMe(articleInput, min_length_of_article, max_length_of_article):
 
 
 
-demo = gr.Interface(fn=greetMe, 
+demo = gr.Interface(fn=summ, 
                      title="Суммаризация текста",
                      inputs=[
                          gr.Textbox(lines=20, placeholder="Введите статью для того чтобы сократить ее", label="Ввод текста", interactive=True),
@@ -30,4 +30,4 @@ demo = gr.Interface(fn=greetMe,
 
 
 if __name__=="__main__":
-    demo.launch(show_api=False)
+    demo.launch()
