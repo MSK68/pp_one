@@ -2,6 +2,8 @@ import gradio as gr
 from transformers import pipeline
 import re
 
+import tg
+
 
 
 text_summarizer_pipeline = pipeline('summarization', model="d0rj/rut5-base-summ")
@@ -11,9 +13,7 @@ text_summarizer_pipeline = pipeline('summarization', model="d0rj/rut5-base-summ"
 def summ(articleInput, min_length_of_article, max_length_of_article):
 
     articleToBeSummarized = articleInput
-
     summarizedArticle = text_summarizer_pipeline(articleToBeSummarized, min_length=min_length_of_article, max_length=max_length_of_article, do_sample=False)
-
     return summarizedArticle[0]['summary_text']
 
 
