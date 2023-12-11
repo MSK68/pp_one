@@ -2,21 +2,26 @@ import gradio as gr
 from transformers import pipeline
 import re
 
-import tg
 
-
-
-text_summarizer_pipeline = pipeline('summarization', model="d0rj/rut5-base-summ")
+min_leght = 250
 
 
 
 def summ(articleInput, min_length_of_article, max_length_of_article):
+    if len(articleInput) > min_leght :
+        summarizedArticle = summarizer_pipline(articleInput, 
+                                                     min_length=min_length_of_article, 
+                                                     max_length=max_length_of_article, 
+                                                     do_sample=False)
+        return summarizedArticle[0]['summary_text']
+    return f'Минимальное колличество символов в статье {min_leght}'
 
-    articleToBeSummarized = articleInput
-    summarizedArticle = text_summarizer_pipeline(articleToBeSummarized, min_length=min_length_of_article, max_length=max_length_of_article, do_sample=False)
-    return summarizedArticle[0]['summary_text']
 
 
+
+
+
+summarizer_pipline = pipeline('summarization', model="d0rj/rut5-base-summ")
 
 demo = gr.Interface(fn=summ, 
                      title="Суммаризация текста",
