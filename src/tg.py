@@ -14,7 +14,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     message = ''
     message += f'Привет {update.effective_user.first_name}\n'
     message += 'Это бот для помощи студентам с конспектами\n'
-    message += 'Введите текст который хотите обработать'
+    message += 'Введите текст, который хотите обработать'
 
     await update.message.reply_text(message)
 

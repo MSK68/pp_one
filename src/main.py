@@ -14,7 +14,7 @@ def summ(articleInput, min_length_of_article, max_length_of_article):
                                                      max_length=max_length_of_article, 
                                                      do_sample=False)
         return summarizedArticle[0]['summary_text']
-    return f'Минимальное колличество символов в статье {min_leght}'
+    return f'Минимальное количество символов в статье {min_leght}'
 
 
 
@@ -26,9 +26,9 @@ summarizer_pipline = pipeline('summarization', model="d0rj/rut5-base-summ")
 demo = gr.Interface(fn=summ, 
                      title="Суммаризация текста",
                      inputs=[
-                         gr.Textbox(lines=20, placeholder="Введите статью для того чтобы сократить ее", label="Ввод текста", interactive=True),
-                         gr.Slider(50, 250, value=10, step=10, label="Минимальное колличество слов в сокращении", info="Выберите от 50 до 250"),
-                         gr.Slider(300, 1000, value=120, step=10, label="Максимальное колличество слов в сокращении", info="Выберите от 300 and 1000"),
+                         gr.Textbox(lines=20, placeholder="Введите статью для ее сокращения", label="Ввод текста", interactive=True),
+                         gr.Slider(50, 250, value=10, step=10, label="Минимальное колличество слов в сокращенном варианте", info="Выберите от 50 до 250"),
+                         gr.Slider(300, 1000, value=120, step=10, label="Максимальное колличество слов в сокращенном варианте", info="Выберите от 300 and 1000"),
                      ],
                      outputs=gr.Textbox(lines=20, label="Выход", show_copy_button=True),
                      allow_flagging='never')
