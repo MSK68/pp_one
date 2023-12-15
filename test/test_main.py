@@ -1,5 +1,5 @@
 import unittest
-from src.main import summ, min_leght
+from pp_one.src.main import summ, min_leght
 from unittest.mock import patch
 from io import StringIO
 
