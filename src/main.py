@@ -33,6 +33,5 @@ demo = gr.Interface(fn=summ,
                      outputs=gr.Textbox(lines=20, label="Выход", show_copy_button=True),
                      allow_flagging='never')
 
-
 if __name__=="__main__":
     demo.launch(server_name="0.0.0.0", server_port=7860)
