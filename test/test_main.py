@@ -1,5 +1,8 @@
+import sys
+sys.path.append('../src')
+
 import unittest
-from src.main import summ, min_leght
+from main import summ, min_leght
 from unittest.mock import patch
 from io import StringIO
 
