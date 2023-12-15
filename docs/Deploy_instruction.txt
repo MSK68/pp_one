@@ -1,0 +1,21 @@
+# Инструкция по развертыванию приложения
+
+Приложение развертывается на облачном сервере VK Cloud в виде контейнера Docker.
+
+Для развертывания в консоли облачного сервера необходимо выполнить следующие действия:
+- запустить web-сервер оркестратора openvodelz:
+```
+$ mdz server start 212.233.78.98
+```
+- запустить приложение
+```
+$ mdz deploy --image savirman/msk68-app:0.0.6 --name msk68 --port 7860
+```
+- убедиться в том, что приложение запущено
+```
+$ mdz list
+ NAME    ENDPOINT                                                         STATUS  INVOCATIONS  REPLICAS 
+ msk68   http://mint-possum-7b2yyozy5dm8fsfg.212.233.78.98.modelz.live/   Ready           174  1/1      
+         http://212.233.78.9.modelz.live/inference/msk68.default  
+```
+Приложение будет доступно по публичной ссылке http://mint-possum-7b2yyozy5dm8fsfg.212.233.78.98.modelz.live/
