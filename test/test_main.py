@@ -1,8 +1,8 @@
 import sys
-sys.path.append('../src')
+sys.path.append('../')
 
 import unittest
-from main import summ, min_leght
+from pp_one.src.main import summ, min_leght
 from unittest.mock import patch
 from io import StringIO
 
