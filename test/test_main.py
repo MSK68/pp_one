@@ -1,10 +1,5 @@
-import sys
-import os
-sys.path.append(os.path.abspath('../'))
-
-
 import unittest
-from  src.main import summ, min_leght
+from src.main import summ, min_leght
 from unittest.mock import patch
 from io import StringIO
 
