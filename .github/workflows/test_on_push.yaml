@@ -16,7 +16,7 @@ jobs:
       # Устанавливаем python нужной версии
       - uses: actions/setup-python@v3
         with:
-          python-version: '3.8'
+          python-version: '3.9'
           architecture: 'x64'
       - name: Upgrade pip
         run: pip install --upgrade pip
