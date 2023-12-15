@@ -40,5 +40,24 @@ demo = gr.Interface(fn=summ,
                     outputs=gr.Textbox(lines=20, label="Выход", show_copy_button=True),
                     allow_flagging='never')
 
+<<<<<<< HEAD
 if __name__ == "__main__":
     demo.launch(server_name="0.0.0.0", server_port=7860)
+=======
+
+
+summarizer_pipline = pipeline('summarization', model="d0rj/rut5-base-summ")
+
+demo = gr.Interface(fn=summ, 
+                     title="Суммаризация текста",
+                     inputs=[
+                         gr.Textbox(lines=20, placeholder="Введите статью ее сокращения", label="Ввод текста", interactive=True),
+                         gr.Slider(10, 100, value=10, step=10, label="Минимальное количество слов в сокращенном виде", info="Выберите от 10 до 100"),
+                         gr.Slider(120, 250, value=120, step=10, label="Максимальное количество слов в сокращенном виде", info="Выберите от 120 and 250"),
+                     ],
+                     outputs=gr.Textbox(lines=20, label="Выход", show_copy_button=True),
+                     allow_flagging='never')
+
+if __name__=="__main__":
+    demo.launch(server_name="0.0.0.0", server_port=7860)
+>>>>>>> 1fdc9527e12535c6cfd842a054f0e4f256d68326
