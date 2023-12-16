@@ -29,18 +29,18 @@ def summ(articleInput, min_length_of_article, max_length_of_article):
 
 summarizer_pipline = pipeline('summarization', model="d0rj/rut5-base-summ")  # Загрузка модели
 
-demo = gr.Interface(fn=summ,
+ifrace = gr.Interface(fn=summ,
                     title="Суммаризация текста",
                     inputs=[
                         gr.Textbox(lines=20, placeholder="Введите статью ее сокращения", label="Ввод текста",
                                    interactive=True),
-                        gr.Slider(10, 100, value=10, step=10, label="Минимальное количество слов в сокращенном виде",
-                                  info="Выберите от 10 до 100"),
-                        gr.Slider(120, 250, value=120, step=10, label="Максимальное количество слов в сокращенном виде",
-                                  info="Выберите от 120 and 250"),
+                        gr.Slider(50, 200, value=50, step=10, label="Минимальное количество слов в сокращенном виде",
+                                  info="Выберите от 50 до 200"),
+                        gr.Slider(200, 500, value=200, step=10, label="Максимальное количество слов в сокращенном виде",
+                                  info="Выберите от 200 and 500"),
                     ],
                     outputs=gr.Textbox(lines=20, label="Выход", show_copy_button=True),
                     allow_flagging='never')
 
 if __name__ == "__main__":
-    demo.launch(server_name="0.0.0.0", server_port=7860)
+    ifrace.launch(server_name="0.0.0.0", server_port=7860)
