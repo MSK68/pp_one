@@ -25,9 +25,13 @@ jobs:
         run: |
             pip install -r requirements.txt
             pip install pytest
-      - name: Run tests
+      - name: Run tests on main.py
         run: pytest test/test_main.py
-      - name: Run coverage
+      - name: Run coverage on main.py
         run: coverage run -m pytest test/test_main.py
+      - name: Run tests on tg.py
+        run: pytest test/test_tg2.py
+      - name: Run coverage on tg.py
+        run: coverage run -m pytest test/test_tg2.py    
       - name: Tests report
         run: coverage report
