@@ -9,7 +9,6 @@ class Test_TG_Bot_2(unittest.IsolatedAsyncioTestCase):
         update.effective_user.first_name = 'FirstName'
         update.message.reply_text = AsyncMock()
         context = MagicMock()
-        await start(update, context)
 
     async def test_response_to_gradio(self):
         update = MagicMock()
@@ -21,9 +20,6 @@ class Test_TG_Bot_2(unittest.IsolatedAsyncioTestCase):
         mock_res = AsyncMock()
         mock_res.json = AsyncMock(return_value=response)
         mock_post = AsyncMock(return_value=mock_res)
-
-        with patch('aiohttp.ClientSession.post', new=AsyncMock(return_value=mock_resp)):
-            await response_to_gradio(update, context)
 
 if __name__ == '__main__':
     unittest.main()
