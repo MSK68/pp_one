@@ -1,6 +1,5 @@
 import unittest
 from unittest.mock import MagicMock, AsyncMock, patch
-from pp_one.src.tg import start, response_to_gradio, requests
 import aiohttp
 
 

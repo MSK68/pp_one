@@ -49,8 +49,8 @@ jobs:
             pip install -r requirements.txt
             pip install pytest
       - name: Run tests
-        run: pytest test/test_tg2.py
+        run: pytest src/test_tg2.py
       - name: Run coverage
-        run: coverage run -m pytest test/test_tg2.py
+        run: coverage run -m pytest src/test_tg2.py
       - name: Tests report
         run: coverage report
