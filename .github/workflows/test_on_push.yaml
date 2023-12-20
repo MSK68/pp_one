@@ -8,7 +8,7 @@ on:
     branches:
       - '*'
 jobs:
-  run_tests:
+  run_tests_main:
     runs-on: [ubuntu-latest]
     steps:
       # Чекаутим код
@@ -29,5 +29,28 @@ jobs:
         run: pytest test/test_main.py
       - name: Run coverage
         run: coverage run -m pytest test/test_main.py
+      - name: Tests report
+        run: coverage report
+  run_tests_tg:
+    runs-on: [ubuntu-latest]
+    steps:
+      # Чекаутим код
+      - uses: actions/checkout@master
+      # Устанавливаем python нужной версии
+      - uses: actions/setup-python@v3
+        with:
+          python-version: '3.9'
+          architecture: 'x64'
+      - name: Upgrade pip
+        run: pip install --upgrade pip
+      - name: Install requirements
+        # Устанавливаем зависимости
+        run: |
+            pip install -r requirements.txt
+            pip install pytest
+      - name: Run tests
+        run: pytest test/test_tg2.py
+      - name: Run coverage
+        run: coverage run -m pytest test/test_tg2.py
       - name: Tests report
         run: coverage report
