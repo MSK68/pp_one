@@ -11,6 +11,8 @@ jobs:
   run_lint:
     runs-on: [ubuntu-latest]
     steps:
+      - name: Install requirements
+        run: pip install flake8
       - name: Run Lint with flake8
         run: |
             # stop the build if there are Python syntax errors or undefined names
@@ -33,7 +35,7 @@ jobs:
         # Устанавливаем зависимости
         run: |
             pip install -r requirements.txt
-            pip install flake8 pytest
+            pip install pytest
       - name: Run tests
         run: pytest test/test_main.py
       - name: Run coverage
