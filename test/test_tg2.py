@@ -1,7 +1,6 @@
 import unittest
 from unittest.mock import MagicMock, AsyncMock, patch
 from pp_one.src.tg import start, response_to_gradio, requests
-import aiohttp
 
 
 class Test_TG_Bot_2(unittest.IsolatedAsyncioTestCase):
@@ -23,7 +22,7 @@ class Test_TG_Bot_2(unittest.IsolatedAsyncioTestCase):
         mock_res.json = AsyncMock(return_value=response)
         mock_post = AsyncMock(return_value=mock_res)
 
-        with patch('aiohttp.ClientSession.post', new=AsyncMock(return_value=mock_resp)):
+        with patch('aiohttp.ClientSession.post', new=AsyncMock(return_value=mock_res)):
             await response_to_gradio(update, context)
 
 if __name__ == '__main__':

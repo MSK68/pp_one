@@ -5,7 +5,6 @@
 
 import gradio as gr
 from transformers import pipeline
-import re
 
 min_leght = 250
 
