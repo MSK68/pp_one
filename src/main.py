@@ -9,7 +9,7 @@ from transformers import pipeline
 min_leght = 250
 
 
-def summ(articleInput, min_length_of_article, max_length_of_article):
+def summ(articleInput, minimal_length, maximum_length):
     """
     Функция для сокращения текста. В качестве модели используется модель d0rj/rut5-base-summ.
     :param articleInput: Входной текст, string
@@ -19,8 +19,8 @@ def summ(articleInput, min_length_of_article, max_length_of_article):
     """
     if len(articleInput) > min_leght:
         summarizedArticle = summarizer_pipline(articleInput,
-                                               min_length=min_length_of_article,
-                                               max_length=max_length_of_article,
+                                               min_length=minimal_length,
+                                               max_length=maximum_length,
                                                do_sample=False)
         return summarizedArticle[0]['summary_text']
     return f'Минимальное количество символов в статье {min_leght}'
