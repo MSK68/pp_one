@@ -28,7 +28,7 @@ def summarize_text(articleInput, minimal_length, maximum_length):
 
 summarizer_pipline = pipeline('summarization', model="d0rj/rut5-base-summ")  # Загрузка модели
 
-ifrace = gr.Interface(fn=summarize_text,
+interface = gr.Interface(fn=summarize_text,
                     title="Суммаризация текста",
                     inputs=[
                         gr.Textbox(lines=20, placeholder="Введите статью ее сокращения", label="Ввод текста",
@@ -42,4 +42,4 @@ ifrace = gr.Interface(fn=summarize_text,
                     allow_flagging='never')
 
 if __name__ == "__main__":
-    ifrace.launch(server_name="0.0.0.0", server_port=7860)
+    interface.launch(server_name="0.0.0.0", server_port=7860)
