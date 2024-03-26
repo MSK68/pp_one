@@ -6,7 +6,7 @@
 import gradio as gr
 from transformers import pipeline
 
-min_leght = 250
+MIN_LENGHT_DEFAULT = 250
 
 
 def summ(articleInput, minimal_length, maximum_length):
