@@ -9,7 +9,7 @@ from transformers import pipeline
 min_lenght = 250
 
 
-def summ(argument_input, minimal_length, maximum_length):
+def summarize_text(articleInput, minimal_length, maximum_length):
     """
     Функция для сокращения текста. В качестве модели используется модель d0rj/rut5-base-summ.
     :param argument_input: Входной текст, string
@@ -28,7 +28,7 @@ def summ(argument_input, minimal_length, maximum_length):
 
 summarizer_pipline = pipeline('summarization', model="d0rj/rut5-base-summ")  # Загрузка модели
 
-interface = gr.Interface(fn=summ,
+interface = gr.Interface(fn=summarize_text,
                     title="Суммаризация текста",
                     inputs=[
                         gr.Textbox(lines=20, placeholder="Введите статью ее сокращения", label="Ввод текста",
