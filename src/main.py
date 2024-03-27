@@ -6,19 +6,19 @@
 import gradio as gr
 from transformers import pipeline
 
-min_leght = 250
+min_lenght = 250
 
 
 def summarize_text(articleInput, minimal_length, maximum_length):
     """
     Функция для сокращения текста. В качестве модели используется модель d0rj/rut5-base-summ.
-    :param articleInput: Входной текст, string
+    :param argument_input: Входной текст, string
     :param min_length_of_article: Минимальное количество слов в сокращенном виде, int
     :param max_length_of_article: Максимальное количество слов в сокращенном виде, int
     :return: Сокращенный текст, string
     """
-    if len(articleInput) > min_leght:
-        summarizedArticle = summarizer_pipline(articleInput,
+    if len(argument_input) > min_leght:
+        summarizedArticle = summarizer_pipline(argument_input,
                                                min_length=minimal_length,
                                                max_length=maximum_length,
                                                do_sample=False)
