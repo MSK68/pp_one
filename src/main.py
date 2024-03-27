@@ -18,11 +18,11 @@ def summarize_text(articleInput, minimal_length, maximum_length):
     :return: Сокращенный текст, string
     """
     if len(argument_input) > min_leght:
-        summarizedArticle = summarizer_pipline(argument_input,
+        summarized_article = summarizer_pipline(argument_input,
                                                min_length=minimal_length,
                                                max_length=maximum_length,
                                                do_sample=False)
-        return summarizedArticle[0]['summary_text']
+        return summarized_article[0]['summary_text']
     return f'Минимальное количество символов в статье {min_leght}'
 
 
