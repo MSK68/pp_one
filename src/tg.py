@@ -7,7 +7,7 @@ from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes, Messa
 import requests
 
 # Замените 'YOUR_BOT_TOKEN' на токен вашего бота
-TOKEN = '6335769743:AAEqgEVwH9J_ZsEvir5NIWB98uWRviN49JA'
+TOKEN = 'YOUR_BOT_TOKEN'
 # Замените 'HOST PORT' на данные где запущен Gradio
 HOST = '127.0.0.1'
 PORT = '7860'
